@@ -2,6 +2,7 @@
 *.pot
 *.pyc
 __pycache__/
+.vs/
 local_settings.py
 *.py[cod]
 *$py.class

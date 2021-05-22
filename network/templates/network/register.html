@@ -2,10 +2,10 @@
 
 {% block body %}
 
-    <h2>Register</h2>
+    <h2 class="txr mt-2 mb-4">Register</h2>
 
     {% if message %}
-        <div>{{ message }}</div>
+        <div class = 'alert alert-danger'>{{ message }}</div>
     {% endif %}
 
     <form action="{% url 'register' %}" method="post">
@@ -22,7 +22,7 @@
         <div class="form-group">
             <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Register">
+        <input class="btn post" type="submit" value="Register">
     </form>
 
     Already have an account? <a href="{% url 'login' %}">Log In here.</a>
