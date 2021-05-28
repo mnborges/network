@@ -1,26 +1,8 @@
 {% extends "network/layout.html" %}
 {% load static %}
-
 {% block body %}
-    <div id="body-header"></div>
-    {% if user.is_authenticated %}
-        <div id="new-post" class="form-group p-3 my-3 border">
-            <script type="text/babel">
-                var username = document.querySelector('#network').dataset.username; 
-                ReactDOM.render(
-                <PostForm user={username}/>, document.querySelector('#new-post'));
-            </script>
-        </div>
-    {% else %}
-    <div class = "m-4 text-right">
-        <a href="{% url 'login' %}">Log in</a> to share your thoughts.
-    </div>
-    {% endif %}
-    <!--- try another method
-    <div id="allonly">
-      
-    </div> --->
-    <div id="load"> </div>
+<div id="new-post" class="form-group p-3 my-3 border"><!--- post form ---></div>
+<div id="load"></div>
 {% endblock %}
 
 {% block script %}
