@@ -15,15 +15,15 @@
 
 </head>
         <body id="root">
-
+            
             <nav class="navbar navbar-expand-lg sticky-top" id='bar'>
-                <a class="navbar-brand text-white" href="#" id="network" data-username="{{ user.username }}" 
+                <a class="navbar-brand text-white" href="{% url 'index' %}" id="network" data-username="{{ user.username }}" 
                 data-user="{{ user.is_authenticated }}">Network</a>
                 <div>
                   <ul class="navbar-nav mr-auto">
                     {% if user.is_authenticated %}
                         <li class="nav-item ">
-                            <a class="nav-link text-white" href="#" id="profile"><strong>{{ user.username }}</strong></a>
+                            <a class="nav-link text-white " id="profile"><strong>{{ user.username }}</strong></a>
                         </li>
                     {% endif %}
                     <li class="nav-item">
@@ -31,7 +31,7 @@
                     </li>
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#" id="follow">Following</a>
+                            <a class="nav-link text-white" id="follow">Following</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{% url 'logout' %}">Log Out</a>
@@ -48,7 +48,7 @@
                 </div>
               </nav>
 
-            <div class="container">
+            <div id= 'bbody' class="container">
                 {% block body %}
                 {% endblock %}
             </div>

@@ -1,10 +1,15 @@
 .post{
     padding:6px;
-    border-bottom: 1px solid #d1a589;
-    margin:2px;
+    border-left: 0px;
+    
+}
+div.post{
+    background-color: #f8cfa8;
+    border-radius: 1%;
 }
 .post:hover{
-    box-shadow:0 0 .25em inset #dc5500;
+    border-left: 3px solid #c02000;
+    box-shadow:0 0 .25em inset #c02000;
 }
 .btn.post{
     padding:5px 10px;
@@ -14,6 +19,9 @@
 .btn.post:hover {
     background-color:  #c02000;
     color: white;
+}
+.btn.post:focus {
+    box-shadow:0 0 .25em #dc5500;
 }
 #bar{
     background-color: #c02000;
@@ -25,6 +33,7 @@
     color: #dc5500;
 }
 .nav-link:hover{
+    cursor: pointer;
     border-radius: 10%;
     background-color: #dc5500;
 }
@@ -34,7 +43,17 @@
 }
 a{
     color: #dc5500;
+    cursor: pointer;
+}
+.page-item{
+    color: #dc5500;
 }
 a:hover{
     color: #c02000;
+}
+.page-item:hover{
+    color: white;
+}
+.page-link:hover{
+    background-color: #c02000;
 }
