@@ -1,10 +1,10 @@
-{% extends "network/layout.html" %}
-{% load static %}
-{% block body %}
-<div id="new-post" class="form-group p-3 my-3 border"><!--- post form ---></div>
-<div id="load"></div>
-{% endblock %}
+{% extends "network/layout.html" %} {% load static %} {% block body %}
 
-{% block script %}
-<script type="text/babel" src="{% static 'network/index.js' %}"></script>
+<div id="load"></div>
+{% endblock %} {% block script %}
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script
+  type="text/babel"
+  src="{% static 'network/react_network.js' %}"
+></script>
 {% endblock %}

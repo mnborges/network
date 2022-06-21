@@ -4,12 +4,12 @@
     
 }
 div.post{
-    background-color: #f8cfa8;
+    background-color: #ffe0a6;
     border-radius: 1%;
 }
 .post:hover{
-    border-left: 3px solid #c02000;
     box-shadow:0 0 .25em inset #c02000;
+    cursor:pointer;
 }
 .btn.post{
     padding:5px 10px;
@@ -56,4 +56,19 @@ a:hover{
 }
 .page-link:hover{
     background-color: #c02000;
+}
+pre{
+    font-family: inherit;
+}
+.post .btn.post{
+    background-color:  #dc5500;
+    color: white;
+}
+.post .btn.post:hover{
+    background-color: #c02000;
+    color:white;
+}
+.avatar{
+    background-color:  #dc540070;
+    max-height: 100px;
 }
