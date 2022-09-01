@@ -560,9 +560,8 @@ function buttonHandler(e, post, type, callback) {
       break;
   }
 }
-function PostForm(props) {
-  if (!props.type) throw new Error("Form type unespecified!");
-  const { type } = props;
+function PostForm({ type }) {
+  if (!type) throw new Error("Form type unespecified!");
   const [formValue, setFormValue] = React.useState(
     props.value ? props.value : ""
   );
@@ -592,7 +591,7 @@ function PostForm(props) {
           placeholder={
             type == "reply" ? "Write your reply..." : "What is in your mind?"
           }
-          autoFocus={type != "new" ? true : false}
+          autoFocus
         />
         {type != "new" && (
           <button

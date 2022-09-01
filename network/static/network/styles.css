@@ -1,74 +1,94 @@
-.post{
-    padding:6px;
-    border-left: 0px;
-    
+.post {
+  padding: 6px;
+  border-left: 0px;
+  min-height: fit-content;
 }
-div.post{
-    background-color: #ffe0a6;
-    border-radius: 1%;
+div.post {
+  background-color: #ffe0a6;
+  border-radius: 1%;
 }
-.post:hover{
-    box-shadow:0 0 .25em inset #c02000;
-    cursor:pointer;
+.post:hover {
+  box-shadow: 0 0 0.25em inset #c02000;
+  cursor: pointer;
 }
-.btn.post{
-    padding:5px 10px;
-    color:#dc5500;
-    border: 1px solid #dc5500;
+.btn.post {
+  padding: 5px 10px;
+  color: #dc5500;
+  border: 1px solid #dc5500;
 }
 .btn.post:hover {
-    background-color:  #c02000;
-    color: white;
+  background-color: #c02000;
+  color: white;
 }
 .btn.post:focus {
-    box-shadow:0 0 .25em #dc5500;
+  box-shadow: 0 0 0.25em #dc5500;
 }
-#bar{
-    background-color: #c02000;
+#bar {
+  background-color: #c02000;
 }
-.txr{
-    color: #c02000;
+.txr {
+  color: #c02000;
 }
-.txo{
-    color: #dc5500;
+.txo {
+  color: #dc5500;
 }
-.nav-link:hover{
-    cursor: pointer;
-    border-radius: 10%;
-    background-color: #dc5500;
+.nav-link:hover {
+  cursor: pointer;
+  border-radius: 10%;
+  background-color: #dc5500;
 }
-.form-control:focus{
-    box-shadow:0 0 10px #dc5500;
-    border-color: #c02000;
+.form-control:focus {
+  box-shadow: 0 0 10px #dc5500;
+  border-color: #c02000;
 }
-a{
-    color: #dc5500;
-    cursor: pointer;
+a {
+  color: #dc5500;
+  cursor: pointer;
 }
-.page-item{
-    color: #dc5500;
+.page-item {
+  color: #dc5500;
 }
-a:hover{
-    color: #c02000;
+a:hover {
+  color: #c02000;
 }
-.page-item:hover{
-    color: white;
+.page-item:hover {
+  color: white;
 }
-.page-link:hover{
-    background-color: #c02000;
+.page-link:hover {
+  background-color: #c02000;
 }
-pre{
-    font-family: inherit;
+pre {
+  font-family: inherit;
 }
-.post .btn.post{
-    background-color:  #dc5500;
-    color: white;
+.post .btn.post {
+  background-color: #dc5500;
+  color: white;
 }
-.post .btn.post:hover{
-    background-color: #c02000;
-    color:white;
+.post .btn.post:hover {
+  background-color: #c02000;
+  color: white;
 }
-.avatar{
-    background-color:  #dc540070;
-    max-height: 100px;
+.avatar {
+  background-color: #dc540070;
+  max-height: 100px;
+}
+textarea {
+  resize: none;
+}
+.reply-transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.reply-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.reply-transition-exit {
+  opacity: 1;
+}
+.reply-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }

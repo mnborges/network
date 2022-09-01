@@ -1,37 +1,23 @@
-{% extends "network/layout.html" %}
-{% load static %}
-
-{% block body %}
-<div class = 'mt-5'>
-{% if message %}
-    <div class = "alert alert-danger"><strong>Error!</strong> {{message}} </div>
-{% else %}
-    <ul class="list-unstyled">
-        {% for user in profiles %} 
-            <li class="clearfix">
-                <img class ='rounded-circle' src={{user.photo}} style="float:left" width="100" height="auto">
-                <a class = 'txr h5' href="{% url 'page' user.username %} ">@{{user.username}}</a>
-                <p class='txo'> {{user.bio}} </p>
-            </li>
-            <hr>
-        {% endfor %} 
-    </ul>
-{% endif %}
+{% extends "network/layout.html" %} {% block title %} Social Network | {{page}}
+{% endblock %} {% block body %}
+<div class="mt-5">
+  <ul class="list-unstyled">
+    {% for user in profiles %}
+    <li class="clearfix">
+      <img
+        class="rounded-circle"
+        src="{{ user.photo }}"
+        style="float: left"
+        width="100"
+        height="auto"
+      />
+      <a class="txr h5" href="{% url 'profile' user.username %} "
+        >@{{user.username}}</a
+      >
+      <p class="txo">{{user.bio}}</p>
+    </li>
+    <hr />
+    {% endfor %}
+  </ul>
 </div>
-{% endblock %}
-{% block script %} 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {  
-            // if user is not authenticated these should be ignored
-            if (document.querySelector('#network').dataset.user != 'False') {
-                document.querySelector('#follow').addEventListener('click', () => {
-                    window.location.href = '/following';
-                });
-                document.querySelector('#profile').addEventListener('click', () => {
-                    const user = document.querySelector('#network').dataset.username;
-                    window.location.href = `/${user}`;
-                });
-            }
-        });
-    </script>
 {% endblock %}
