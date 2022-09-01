@@ -1,10 +1,10 @@
-{% extends "network/layout.html" %}
-{% load static %}
-{% block body %}
-<div id="new-post" class="form-group p-3 my-3 border"><!--- post form ---></div>
-<div id="load"></div>
-{% endblock %}
-
-{% block script %}
+{% extends "network/layout.html" %}{% load static %}{% block title %} Social
+Network | Homepage {% endblock %} {% block body %}
 <script type="text/babel" src="{% static 'network/index.js' %}"></script>
+<script type="text/babel" src="{% static 'network/postSection.js' %}"></script>
+{% block topscreen %}
+<div id="post_form_section"></div>
+{% endblock %}
+<div id="posts_section"></div>
+</div>
 {% endblock %}

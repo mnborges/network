@@ -2,55 +2,115 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'favicon.ico' %}"
+    />
     <title>{% block title %}Social Network{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="{% static 'network/styles.css' %}" rel="stylesheet">
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    {% block script %}  
-    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link href="{% static 'network/styles.css' %}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/614fd513c2.js" crossorigin="anonymous">
+      /* Icons */
+    </script>
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"
+      crossorigin
+    >
+      /* Get "csrftoken" cookie easily */
+    </script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js">
+      /* JS compiler */
+    </script>
+    <script
+      src="https://unpkg.com/react-transition-group@4.4.5/dist/react-transition-group.js"
+      crossorigin
+    >
+      /* Add transitions to elements */
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-router/6.3.0/react-router.development.js"
+      integrity="sha512-Nex3lgc7b78S7hBDv5tLHSstDA9xvx0ezrLU/XeVcYpFOTqv+siyKop9sTbYU/9L23cITliJLHJwW57WnI1vbQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+      /* React Router.. Currrently not in use */
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.3.0/react-router-dom.development.js"
+      integrity="sha512-IDZI9FEwnFQh2PmbbpvC4+pIEMeMwnlsh5y4a56hkK+jv8jDnXsjjcRTaZBSj+iqY0+Kc00FdVoFmn0+jeNIzw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    >
+      /* React Router DOM .. not in use*/
+    </script>
+    {% block script %} {% endblock %}
+  </head>
+  <body id="root">
+    <nav class="navbar navbar-expand-lg sticky-top" id="bar">
+      <a
+        class="navbar-brand text-white"
+        href="{% url 'index' %}"
+        id="network"
+        data-username="{{ user.username }}"
+        data-user="{{ user.is_authenticated }}"
+        ><i class="fa-solid fa-globe"></i> Network</a
+      >
+      <div>
+        <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'profile' user.username %}"">
+              <i class="fas fa-user"></i>
+              <strong>{{ user.username }}</strong></a
+            >
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'index' %}"
+              >All Posts</a
+            >
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'following' %}">Following</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'logout' %}">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a
+            >
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'login' %}">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{% url 'register' %}"
+              >Register</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
 
-</head>
-        <body id="root">
-            
-            <nav class="navbar navbar-expand-lg sticky-top" id='bar'>
-                <a class="navbar-brand text-white" href="{% url 'index' %}" id="network" data-username="{{ user.username }}" 
-                data-user="{{ user.is_authenticated }}">Network</a>
-                <div>
-                  <ul class="navbar-nav mr-auto">
-                    {% if user.is_authenticated %}
-                        <li class="nav-item ">
-                            <a class="nav-link text-white " id="profile"><strong>{{ user.username }}</strong></a>
-                        </li>
-                    {% endif %}
-                    <li class="nav-item">
-                      <a class="nav-link text-white" href="{% url 'index' %}" id="all">All Posts</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link text-white" id="follow">Following</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'logout' %}">Log Out</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'login' %}">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="{% url 'register' %}">Register</a>
-                        </li>
-                    {% endif %}
-                  </ul>
-                </div>
-              </nav>
-
-            <div id= 'bbody' class="container">
-                {% block body %}
-                {% endblock %}
-            </div>
-        </body>
-    </html>
+    <div class="container">{% block body %} {% endblock %}</div>
+  </body>
+</html>
