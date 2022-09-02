@@ -56,3 +56,4 @@ pythonenv*
 data/
 .vs/
 request.http
+media/
