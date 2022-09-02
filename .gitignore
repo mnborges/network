@@ -2,7 +2,6 @@
 *.pot
 *.pyc
 __pycache__/
-.vs/
 local_settings.py
 *.py[cod]
 *$py.class
@@ -52,4 +51,8 @@ env.bak/
 venv.bak/
 pythonenv*
 .prof
+*.sqlite3
+.sqlite3
+data/
+.vs/
 request.http
